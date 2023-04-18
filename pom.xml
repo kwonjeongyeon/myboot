@@ -3,15 +3,16 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-		<!-- <parent> 태그를 이용하여 또다른 POM 설정을 상속할 수 있다. 따라서 눈에 보이지는 않지만 부모 설정파일로부터 수많은 <dependency> 설정을 상속받아 가지게 되는 것 -->
+	<!-- <parent> 태그를 이용하여 또다른 POM 설정을 상속할 수 있다. 따라서 눈에 보이지는 않지만 부모 설정파일로부터 
+		수많은 <dependency> 설정을 상속받아 가지게 되는 것 -->
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.6.3</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	
-	
+
+
 	<groupId>com.myboot01</groupId>
 	<artifactId>myboot01</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
@@ -29,7 +30,7 @@
 
 		<!-- web 애플리케이션에 필요한 스프링 MVC 관련 라이브러리 -->
 		<!-- 스프링 부트가 웹 프로젝트 환경에 최적화된 라이브러리들을 등록해준다. 이때 톰캣 라이브러리도 같이 다운로드 되었으며, 
-		애플리케이션 실행시 이 내장 톰캣이 구동된 것 -->
+			애플리케이션 실행시 이 내장 톰캣이 구동된 것 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -52,6 +53,43 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+
+
+		<!-- 타임리프 -->
+		<!-- JSP를 사용하려면 반드시 타임리프관련 라이브러리 주석처리 해야함 -->
+		<!-- <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-thymeleaf</artifactId> 
+			</dependency> -->
+
+		<!-- 스프링부트에서는 jsp가 기본 웹페이지가 아니므로 jstl과 jasper 반드시 추가해줘야 함 -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+		</dependency>
+
+		<!-- JSP를 서블릿으로 변환시켜주는 Jasper -->
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+		</dependency>
+
+
+		<!-- devtools : 컨트롤러를 수정할 때마다 매번 애플리케이션을 재실행하는 것이 귀찮으면 스프링 부트가 제공하는 DevTools 
+			기능을 이용 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+
+		<!-- 자바 라이브러리로 반복되는 getter, setter, toString 등의 메서드 작성코드를 줄여주는 코드 다이어트 
+			라이브러리 -->
+		<!-- lombok을 사용하려면 별도로 이클립스 설치 폴더에 롬복 라이브러리를 추가해야함 이클립스 종료 후 롬복 페이지에서 롬복 
+			다운로드 받고 cmd에서 java -jar lombok.jar 쳐서 롬복 다운로드하기 (이클립스 위치 설정) -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
 		</dependency>
 	</dependencies>
 
